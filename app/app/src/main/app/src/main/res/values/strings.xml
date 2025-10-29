@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Phoenix Native</string>
+    <string name="login">Entrar</string>
+    <string name="email">Email</string>
+    <string name="password">Senha</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="os_list">Ordens de Serviço</string>
+</resources>
