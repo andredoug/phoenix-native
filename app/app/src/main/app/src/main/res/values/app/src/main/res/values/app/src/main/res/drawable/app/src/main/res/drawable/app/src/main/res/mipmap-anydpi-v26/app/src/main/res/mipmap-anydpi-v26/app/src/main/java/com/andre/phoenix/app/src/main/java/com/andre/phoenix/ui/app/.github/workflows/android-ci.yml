@@ -1,9 +1,8 @@
 name: Android CI
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
 
 jobs:
@@ -19,11 +18,12 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Gradle cache
-        uses: gradle/actions/setup-gradle@v3
-
-      - name: Build Debug APK
-        run: ./gradlew assembleDebug
+      # Usa Gradle sem precisar do ./gradlew
+      - name: Build with Gradle (no wrapper)
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: "8.7"
+          arguments: assembleDebug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
